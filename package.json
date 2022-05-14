@@ -1,0 +1,19 @@
+{
+  "name": "screen-recorder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "@Nachiketmh",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express.js": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

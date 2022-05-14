@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Recorder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        *{
+            padding:0px;
+            box-sizing: border-box;
+            margin:0px;
+        }
+        #wrapper{
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3cpath d='M0 0L627.85 0L0 745.8z' filter='url(%23SvgjsFilter1003)' fill='%232d409e'%3e%3c/path%3e%3cpath d='M0 560L627.85 560L0 -185.79999999999995z' filter='url(%23SvgjsFilter1003)' fill='%232d409e'%3e%3c/path%3e%3cpath d='M1440 560L812.15 560L1440 -185.79999999999995z' filter='url(%23SvgjsFilter1003)' fill='%232d409e'%3e%3c/path%3e%3cpath d='M1440 0L812.15 0L1440 745.8z' filter='url(%23SvgjsFilter1003)' fill='%232d409e'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cfilter height='130%25' id='SvgjsFilter1003'%3e%3cfeGaussianBlur in='SourceAlpha' stdDeviation='5' result='TopLeftG'%3e%3c/feGaussianBlur%3e%3cfeOffset dx='-5' dy='-5' in='TopLeftG' result='TopLeftO'%3e%3c/feOffset%3e%3cfeComponentTransfer in='TopLeftO' result='TopLeftC'%3e%3cfeFuncA type='linear' slope='0.7'%3e%3c/feFuncA%3e%3c/feComponentTransfer%3e%3cfeGaussianBlur in='SourceAlpha' stdDeviation='5' result='TopRightG'%3e%3c/feGaussianBlur%3e%3cfeOffset dx='5' dy='-5' in='TopRightG' result='TopRightO'%3e%3c/feOffset%3e%3cfeComponentTransfer in='TopRightO' result='TopRightC'%3e%3cfeFuncA type='linear' slope='0.7'%3e%3c/feFuncA%3e%3c/feComponentTransfer%3e%3cfeGaussianBlur in='SourceAlpha' stdDeviation='5' result='BottomLeftG'%3e%3c/feGaussianBlur%3e%3cfeOffset dx='-5' dy='5' in='BottomLeftG' result='BottomLeftO'%3e%3c/feOffset%3e%3cfeComponentTransfer in='BottomLeftO' result='BottomLeftC'%3e%3cfeFuncA type='linear' slope='0.7'%3e%3c/feFuncA%3e%3c/feComponentTransfer%3e%3cfeGaussianBlur in='SourceAlpha' stdDeviation='5' result='BottomRightG'%3e%3c/feGaussianBlur%3e%3cfeOffset dx='5' dy='5' in='BottomRightG' result='BottomRightO'%3e%3c/feOffset%3e%3cfeComponentTransfer in='BottomRightO' result='BottomRightC'%3e%3cfeFuncA type='linear' slope='0.7'%3e%3c/feFuncA%3e%3c/feComponentTransfer%3e%3cfeMerge%3e%3cfeMergeNode in='TopLeftC'%3e%3c/feMergeNode%3e%3cfeMergeNode in='TopRightC'%3e%3c/feMergeNode%3e%3cfeMergeNode in='BottomLeftC'%3e%3c/feMergeNode%3e%3cfeMergeNode in='BottomRightC'%3e%3c/feMergeNode%3e%3cfeMergeNode in='SourceGraphic'%3e%3c/feMergeNode%3e%3c/feMerge%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            min-height: 100vh;
+        }
+        header{
+            background: #000000c4;
+            position:fixed;
+            width:100%;
+            padding:1rem 0px;
+        }
+        #header-content-wrapper{
+            
+        }
+        #logo{
+            display: inline;
+        }
+        nav{
+            float: right;
+        }
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        .navlink{
+            margin:0px .5rem;
+            padding:0px .5rem;
+        }
+        #recordingsection{
+            padding-top:6rem;
+            
+        }
+        #recordedsection{
+            margin-top: 2rem;
+        }
+        .box{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            row-gap: 1rem;
+        }
+        #recordingwrapper{
+            margin-top:2rem;
+        }
+        #videotorecord{
+            width: 100%;
+            border:1px solid black;
+            border-radius: 5px;
+        }
+        .navigations{
+            margin:1rem 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 2rem ;
+        }
+        .vd{
+            max-width: 500px;
+            min-width: 200px;
+            width: 100%;
+            border:2px solid black;
+        }
+        button{
+            background: rgb(45,64,158);
+            color:#eee;
+            padding:5px 10px;
+            border:5px solid black;
+            border-radius: 5px;
+        }
+        #downloadBtn{
+            padding:5px 10px;
+            border:5px solid black;
+            border-radius: 5px;
+            background: rgb(45,64,158);
+            color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div id="header-content-wrapper" class="container">
+                <div id="logo">
+                    <a href="/">Screen Recorder</a>
+                </div>   
+                <nav>
+                    <a href="https://github.com/Nachiketmahale" target="_blank"  class="navlink">Github</a>
+                    <a href="https://www.hackerrank.com/nachiketmh7" target="_blank" class="navlink">Hackerrank</a>
+                </nav>         
+            </div>
+        </header>
+        <main class="container">
+            <div id="recordingsection" class="box">
+                <div id="recordingwrapper">
+                    <video src="" id="videotorecord" class="vd"></video>
+                    <div id="option-container">
+                        <form class="navigations">
+                            <div id="audiofetcher">
+                                <input type="checkbox" id="audio" name="audio" value="audio">
+                                <label for="audio">Audio</label>
+                            </div>
+                            <div id="videofetcher">
+                                <input type="checkbox" id="video" name="video" value="video" checked disabled >
+                                <label for="video">video</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="btnscontainer" class="navigations">
+                        <button id="capture">Start Capture</button>
+                        <button id="stop">Stop Capture</button>
+                    </div>
+                </div>
+            </div>
+            <div id="recordedsection" class="box">
+                <h3>Download Recorded Video</h3>
+                <video src="" id="recordedvideo" controls class="vd"></video>
+                <div class="navigations">
+                    <a id="downloadBtn">Download</a>
+                </div>
+            </div>
+        </main>
+    </div>
+        <script defer src="JS/home.js"></script>
+</body>
+</html>
